@@ -93,7 +93,7 @@ export class AuthController {
         .cookie("token", token, {
           httpOnly: true,
           secure: process.env.NODE_ENV === "production",
-          sameSite: "lax", // o "strict"
+          sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
           maxAge: 1000 * 60 * 60 * 24 * 7,
         })
         .send("Login successful");
