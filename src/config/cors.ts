@@ -5,7 +5,7 @@ const corsConfig: CorsOptions = {
     const whitelist = [
       process.env.FRONTEND_URL,
       "http://localhost:5173", // Para desarrollo
-      "https://tu-app.vercel.app", // Tu URL de Vercel
+      "https://app-task-mern-frontend.vercel.app", // Tu URL de Vercel
     ].filter(Boolean); // Filtra valores undefined/null
 
     if (!origin || whitelist.includes(origin)) {
