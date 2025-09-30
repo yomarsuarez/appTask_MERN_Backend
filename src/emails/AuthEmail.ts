@@ -11,7 +11,11 @@ const apiInstance = new brevo.TransactionalEmailsApi();
 apiInstance.setApiKey(
   brevo.TransactionalEmailsApiApiKeys.apiKey,
   process.env.BREVO_API_KEY || ""
+  
 );
+console.log("Brevo API Key:", process.env.BREVO_API_KEY?.substring(0, 10) + "...");
+console.log("Brevo Sender:", process.env.BREVO_SENDER_EMAIL);
+
 
 export class AuthEmail {
   static sendConfirmationEmail = async (user: IEmail) => {
