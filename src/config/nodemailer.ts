@@ -4,14 +4,12 @@ dotenv.config();
 
 const config = () => {
   if (process.env.NODE_ENV === "production") {
-    // Configuración para Resend en producción
+    // Configuración para Gmail en producción
     return {
-      host: "smtp.resend.com",
-      port: 587,
-      secure: false,
+      service: "gmail",
       auth: {
-        user: "resend",
-        pass: process.env.RESEND_API_KEY,
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_APP_PASSWORD,
       },
     };
   } else {
