@@ -4,12 +4,17 @@ dotenv.config();
 
 const config = () => {
   if (process.env.NODE_ENV === "production") {
-    // Configuración para Gmail en producción
+    // Configuración para Gmail en producción usando SMTP explícito
     return {
-      service: "gmail",
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false, // true para 465, false para otros puertos
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_APP_PASSWORD,
+      },
+      tls: {
+        rejectUnauthorized: false,
       },
     };
   } else {
